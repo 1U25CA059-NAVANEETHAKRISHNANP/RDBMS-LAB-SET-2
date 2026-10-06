@@ -1,18 +1,13 @@
-USE CollegeDB;
+PELIMITER //
 
-DROP PROCEDURE IF EXISTS CalculateSum;
+CREATE PROCEDURE SumTwoNumbers() BEGIN
 
-DELIMITER $$
+PECLARE numI INT PEFAULT 10; DECLARE numz INT PEFAULT 20; PECLARE total INT;
 
-CREATE PROCEDURE CalculateSum()
-BEGIN
-    -- Declare two variables
-    -- Assign values
-    -- Calculate and display the sum
+SET total = numI + numz;
 
-END $$
+SELECT total AS Sum; END//
 
-DELIMITER ;
+DELIMITER;
 
--- Execute the procedure
-CALL CalculateSum();
+CALL SumTwoNumbers();
