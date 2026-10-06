@@ -1,26 +1,47 @@
-USE CollegeDB;
+DELIMITER//
 
-DROP PROCEDURE IF EXISTS DisplayStudents;
+CREATE PROCEDURE Display Students() BEGIN
 
-DELIMITER $$
+DECLARE done INT DEFAULT 0;
 
-CREATE PROCEDURE DisplayStudents()
-BEGIN
+DECLARE sid INT;
 
-    -- Declare variables
+DECLARE sname VARCHAR(100);
 
-    -- Declare cursor
+DECLARE did INT;
 
-    -- Declare NOT FOUND handler
+DECLARE student_cursor CURSOR FOR
 
-    -- Open cursor
+SELECT StudentID, StudentName, DepartmentID FROM Student;
 
-    -- Fetch records using a loop
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET
 
-    -- Close cursor
+done = 1;
 
-END $$
+OPEN student_cursor;
 
-DELIMITER ;
+read loop: LOOP
+
+FETCH student_cursor INTO sid, sname, did;
+
+IF done THEN
+
+LE AVE read loop;
+
+END IF;
+
+SELECT sid AS Student ID,
+
+sname As StudentName,
+
+did AS DepartmentID;
+
+END LOOP:
+
+CLOSE student_cursor;
+
+END//
+
+DELIMITER:
 
 CALL DisplayStudents();
